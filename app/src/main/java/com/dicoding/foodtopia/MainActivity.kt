@@ -20,4 +20,9 @@ class MainActivity : AppCompatActivity() {
         
         binding.bottomNavigation.setupWithNavController(navController)
     }
+
+    override fun onBackPressed() {
+        // Minimize app instead of logging out
+        moveTaskToBack(true)
+    }
 }

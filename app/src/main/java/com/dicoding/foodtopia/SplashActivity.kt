@@ -9,6 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Check if user is already logged in
+        val sharedPreferences = getSharedPreferences("FoodTopiaPrefs", MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+        
+        if (isLoggedIn) {
+            // If logged in, go directly to MainActivity
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
+        
+        // If not logged in, show splash screen
         setContentView(R.layout.activity_splash)
 
         findViewById<Button>(R.id.loginButton).setOnClickListener {

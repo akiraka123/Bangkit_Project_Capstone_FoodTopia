@@ -5,8 +5,17 @@
     android:layout_height="match_parent"
     android:background="@color/blue_green">
 
-    <!-- Food illustrations will be added as drawables -->
-    
+    <ImageView
+        android:id="@+id/foodIllustration"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/image_splash"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/appLogo"
+        android:layout_marginTop="120dp" />
+
     <TextView
         android:id="@+id/appLogo"
         android:layout_width="wrap_content"
@@ -15,7 +24,7 @@
         android:textSize="36sp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -45,4 +54,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout> 
+</androidx.constraintlayout.widget.ConstraintLayout>

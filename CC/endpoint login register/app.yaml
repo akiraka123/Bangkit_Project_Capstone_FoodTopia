@@ -1,8 +1,0 @@
-runtime: nodejs18
-instance_class: F2
-env_variables:
-  CLIENT_ID: "912549005887-4qg1dk1tr7e8aju9aabeqhsv9bcfn91u.apps.googleusercontent.com"
-  DB_HOST: "34.101.95.97"
-  DB_USER: "root"
-  DB_PASS: "foodtopia44"
-  DB_NAME: "user_auth"

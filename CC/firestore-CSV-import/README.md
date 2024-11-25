@@ -9,7 +9,7 @@ Ini adalah proyek untuk menginisialisasi Firestore dengan kunci layanan berbentu
 Pastikan Anda telah menginstal:
 - [Node.js](https://nodejs.org/) (minimal versi 14)
 - NPM (termasuk dalam Node.js)
-- Download file recipes.csv di https://drive.google.com/drive/folders/1_oAtS_trqv6ShcOJe-N-NBsQWmOJ6NY5 
+- Download file recipes.csv di https://drive.google.com/file/d/1VI3l83kwqCq7MfktjkC9PbJ85Jv7Ddod/view?usp=drive_link 
 
 
 

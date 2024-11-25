@@ -17,9 +17,10 @@ Pastikan Anda telah menginstal:
 
 ### Clone Repository
 Clone repository ke mesin lokal Anda:
-git clone <repository-url>
-cd <project-directory>
-
+  ```bash
+  git clone --branch CC https://github.com/akiraka123/Bangkit_Project_Capstone_FoodTopia.git
+  cd firestore-CSV-import
+  ```
 ### Install De
 npm install
 
@@ -35,8 +36,8 @@ npm install
    admin.initializeApp({
        credential: admin.credential.cert(serviceAccount),
    });
-
+  
    const db = admin.firestore();
-
+  ```
 ### Jalankan index.js
 node index.js

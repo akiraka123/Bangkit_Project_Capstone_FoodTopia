@@ -46,6 +46,7 @@ async function importCSV(filePath) {
           const recipe = {
             RecipeId: parseInt(row.RecipeId, 10),
             Name: row.Name,
+            NameLower: row.Name.toLowerCase(), // Tambahkan field NameLower
             Images: cleanImages(row.Images), // Gunakan fungsi cleanImages
             RecipeCategory: row.RecipeCategory,
             Keywords: JSON.parse(cleanString(row.Keywords)),

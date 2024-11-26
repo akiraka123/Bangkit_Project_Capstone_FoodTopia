@@ -8,10 +8,22 @@ const RESET_PASSWORD_EXPIRATION = parseInt(process.env.RESET_PASSWORD_EXPIRATION
 
 const register = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
+    // Validasi input
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Name, email, and password are required" });
+    }
+
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-    await db.collection("users").doc(email).set({ email, password: hashedPassword });
+
+    // Simpan data ke Firestore
+    await db.collection("users").doc(email).set({
+      name,
+      email,
+      password: hashedPassword,
+    });
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
@@ -92,4 +104,24 @@ const resetPassword = async (req, res) => {
   }
 };
 
-module.exports = { register, login, googleLogin, forgotPassword, resetPassword };
+const getUserName = async (req, res) => {
+  try {
+    const email = req.user.email; // Email diambil dari token yang telah diverifikasi
+    
+    const userDoc = await db.collection("users").doc(email).get();
+    if (!userDoc.exists) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const userData = userDoc.data();
+    res.status(200).json({
+      email: userData.email,
+      name: userData.name,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = { getUserName, register, login, googleLogin, forgotPassword, resetPassword };
+

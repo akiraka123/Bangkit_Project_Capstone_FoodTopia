@@ -94,13 +94,14 @@ const searchRecipes = async (req, res) => {
     }
 
     const offset = (page - 1) * limit;
+    const lowercaseQuery = query.toLowerCase();
 
-    // Search di Firestore berdasarkan "Name" dan "Keywords"
+    // Search di Firestore berdasarkan "NameLower"
     const snapshot = await db
       .collection("recipes")
-      .where("Name", ">=", query)
-      .where("Name", "<=", query + "\uf8ff")
-      .orderBy("Name")
+      .where("NameLower", ">=", lowercaseQuery)
+      .where("NameLower", "<=", lowercaseQuery + "\uf8ff")
+      .orderBy("NameLower")
       .offset(offset)
       .limit(Number(limit))
       .get();
@@ -122,7 +123,7 @@ const searchRecipes = async (req, res) => {
 const getRandomRecipes = async (req, res) => {
   try {
     const { count = 5 } = req.query; // Jumlah random makanan, default 10
-    const maxId = 500000; // Angka maksimum dalam rentang ID
+    const maxId = 541342; // Angka maksimum dalam rentang ID
 
     const randomRecipes = new Set(); // Gunakan Set untuk menghindari duplikasi
     const results = [];
@@ -150,4 +151,7 @@ const getRandomRecipes = async (req, res) => {
 };
 
 
-module.exports = { getPaginatedRecipes,getAllRecipes, getRecipeById, addRecipe, updateRecipe, deleteRecipe,searchRecipes, getRandomRecipes };
+module.exports = { getPaginatedRecipes,getAllRecipes, getRecipeById, 
+  addRecipe, updateRecipe, deleteRecipe,searchRecipes, 
+  getRandomRecipes
+};

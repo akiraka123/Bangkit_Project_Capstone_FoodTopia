@@ -9,6 +9,7 @@ const {
   getPaginatedRecipes,
   searchRecipes,
   getRandomRecipes,
+
 } = require("./recipesController");
 
 const router = express.Router();
@@ -21,5 +22,6 @@ router.get("/:id",  getRecipeById);
 router.post("/", authenticate, addRecipe);
 router.put("/:id", authenticate, updateRecipe);
 router.delete("/:id", authenticate, deleteRecipe);
+
 
 module.exports = router;

@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 // Import routes
 const authRoutes = require("./auth/authRoutes");
 const recipesRoutes = require("./recipes/recipesRoutes");
+const favoriteRoutes = require("./favorite/favoriteRoutes"); 
 
 // Inisialisasi server
 const app = express();
@@ -23,8 +24,9 @@ app.use(bodyParser.json());
 //   });
 // });
 // Rute utama
-app.use("/auth", authRoutes);
-app.use("/recipes", recipesRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/recipes", recipesRoutes);
+app.use("/api/favorite", favoriteRoutes);
 
 // Jalankan server
 const PORT = process.env.PORT || 3000;

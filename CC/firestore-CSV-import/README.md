@@ -17,15 +17,15 @@ Clone repository :
   cd firestore-CSV-import
   ```
 ### Install Dependencies
-```bash
-  npm install
-```
+  ```bash
+    npm install
+  ```
 ### Inisialisasi Firestore Service Key
 1. Prepare your Firestore service key JSON file. This file can be obtained from [Google Cloud Console](https://console.cloud.google.com/).
 2. Put the JSON file into your project directory. Example: `firebase-key.json`.
 3. Change the Firestore initialization code to read your JSON file like this:
 
-   ```javascript
+  ```javascript
    const admin = require('firebase-admin');
    const serviceAccount = require('./firebase-key.json'); // Replace with the name and location of your JSON file
 
@@ -36,6 +36,7 @@ Clone repository :
    const db = admin.firestore();
   ```
 ### Jalankan index.js
-```bash
-  node index.js
-```
+
+  ```bash
+    node index.js
+  ```

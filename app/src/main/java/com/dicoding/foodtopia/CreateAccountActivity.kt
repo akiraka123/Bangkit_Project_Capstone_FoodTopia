@@ -4,9 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.dicoding.foodtopia.data.AccountManager
 import com.dicoding.foodtopia.data.model.Account
 import com.dicoding.foodtopia.databinding.ActivityCreateAccountBinding
+import com.dicoding.foodtopia.data.api.ApiClient
+import com.dicoding.foodtopia.data.api.FoodTopiaApiService
+import com.dicoding.foodtopia.data.api.RegisterRequest
+import kotlinx.coroutines.launch
 
 class CreateAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateAccountBinding
@@ -28,17 +33,23 @@ class CreateAccountActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             if (validateInput(name, email, password)) {
-                if (accountManager.getAccountByEmail(email) != null) {
-                    binding.emailEditText.error = "Email already registered"
-                    return@setOnClickListener
+                lifecycleScope.launch {
+                    try {
+                        val response = ApiClient.apiService.register(
+                            RegisterRequest(name, email, password)
+                        )
+                        
+                        if (response.isSuccessful) {
+                            Toast.makeText(this@CreateAccountActivity, "Account created successfully", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@CreateAccountActivity, LoginActivity::class.java))
+                            finish()
+                        } else {
+                            Toast.makeText(this@CreateAccountActivity, "Registration failed", Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: Exception) {
+                        Toast.makeText(this@CreateAccountActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
                 }
-
-                val account = Account(name, email, password)
-                accountManager.saveAccount(account)
-                
-                Toast.makeText(this, "Account created successfully", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
             }
         }
 

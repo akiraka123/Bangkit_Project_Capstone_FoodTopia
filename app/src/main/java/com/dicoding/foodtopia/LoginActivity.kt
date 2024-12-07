@@ -83,11 +83,6 @@ class LoginActivity : AppCompatActivity() {
             // TODO: Implement forgot password functionality
             Toast.makeText(this, "Forgot password clicked", Toast.LENGTH_SHORT).show()
         }
-
-        binding.googleSignInButton.setOnClickListener {
-            // TODO: Implement Google Sign In
-            Toast.makeText(this, "Google Sign In clicked", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun validateInput(email: String, password: String): Boolean {

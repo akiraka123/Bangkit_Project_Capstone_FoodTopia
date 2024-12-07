@@ -31,40 +31,16 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/userAvatar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/CircleImageView"
-                tools:src="@tools:sample/avatars" />
-
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="8dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/userAvatar"
-                app:layout_constraintEnd_toStartOf="@id/editProfileButton"
-                app:layout_constraintStart_toEndOf="@id/userAvatar"
-                app:layout_constraintTop_toTopOf="@id/userAvatar"
-                tools:text="John Doe" />
-
-            <ImageButton
-                android:id="@+id/editProfileButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="8dp"
-                android:src="@drawable/ic_edit"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/button_color" />
+                tools:text="John Doe" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

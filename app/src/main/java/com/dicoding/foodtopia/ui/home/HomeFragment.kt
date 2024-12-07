@@ -30,8 +30,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupGreeting() {
-        // TODO: Get user's name from preferences/database
-        binding.greetingText.text = getString(R.string.greeting_text, "John")
+        val sharedPreferences = requireContext().getSharedPreferences("FoodTopiaPrefs", android.content.Context.MODE_PRIVATE)
+        val userName = sharedPreferences.getString("user_name", "User") ?: "User"
+        binding.greetingText.text = getString(R.string.greeting_text, userName)
     }
 
     private fun setupRecyclerView() {

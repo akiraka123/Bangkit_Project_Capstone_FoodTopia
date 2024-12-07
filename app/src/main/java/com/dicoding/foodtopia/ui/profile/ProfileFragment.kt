@@ -37,10 +37,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupClickListeners() {
-        binding.editProfileButton.setOnClickListener {
-            // TODO: Navigate to edit profile screen
-        }
-
         binding.logoutButton.setOnClickListener {
             // Clear login state and user data
             requireContext().getSharedPreferences("FoodTopiaPrefs", Context.MODE_PRIVATE)

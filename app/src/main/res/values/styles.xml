@@ -4,4 +4,15 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <style name="TextAppearance.BottomNavigationView.Active" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.BottomNavigationView.Inactive" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources> 

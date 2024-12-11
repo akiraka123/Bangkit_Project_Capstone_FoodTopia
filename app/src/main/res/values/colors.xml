@@ -4,4 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_green">#3AADA6</color>
     <color name="button_color">#2C7873</color>
+    <color name="colorPrimary">#439DA3</color>
+    <color name="gray">#70B9BE</color>
+    <color name="Abu">#F9F6F2</color>
+    <color name="WhiteTr">#80FFFFFF</color>
+    <color name="colorPrimaryDark">#042628</color>
 </resources>

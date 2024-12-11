@@ -1,122 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="1dp">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/recipeImage"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"
-                tools:src="@tools:sample/backgrounds/scenic" />
+                android:layout_height="240dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+            <ImageView
+                android:id="@+id/favoriteButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_shape"
+                android:src="@drawable/favorite_border"
+                android:tint="@android:color/black" />
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <ImageView
+                android:id="@+id/CloseButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="top"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_shape"
+                android:src="@drawable/close"
+                android:tint="@android:color/black" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:background="@color/WhiteTr"
+            android:layout_below="@id/recipeImage"
+            android:layout_marginTop="240dp">
 
             <TextView
                 android:id="@+id/recipeName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:text="Chicken Teriyaki" />
-
-            <TextView
-                android:id="@+id/cookingTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:drawablePadding="4dp"
-                app:drawableStartCompat="@drawable/ic_time"
-                tools:text="30 minutes" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <include
-                        android:id="@+id/calories"
-                        layout="@layout/item_nutrition"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/protein"
-                        layout="@layout/item_nutrition"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/carbs"
-                        layout="@layout/item_nutrition"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/fat"
-                        layout="@layout/item_nutrition"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:text="Recipe Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 android:layout_marginTop="16dp" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
+            <TextView
+                android:id="@+id/recipeCalories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calories: 0"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/recipeServings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Servings: 0"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/recipeInstructions"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:text="Instructions will be displayed here."
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/recipeIngredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingredients: "
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <!-- Nutritional Information -->
+            <TextView
+                android:id="@+id/recipeSodium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sodium: N/A"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/recipeSugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sugar: N/A"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/recipeFat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fat: N/A"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/recipeProtein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Protein: N/A"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/recipeFiber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fiber: N/A"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout> 
+    </RelativeLayout>
+</ScrollView>

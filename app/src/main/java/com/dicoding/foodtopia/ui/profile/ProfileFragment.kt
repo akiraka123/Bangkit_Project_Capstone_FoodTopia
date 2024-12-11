@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.Fragment
 import com.dicoding.foodtopia.SplashActivity
+import com.dicoding.foodtopia.ui.home.HomeFragment
+import com.dicoding.foodtopia.R
 import com.dicoding.foodtopia.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -25,9 +28,16 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         setupProfile()
         setupClickListeners()
+
+        val backButton = view.findViewById<AppCompatImageButton>(R.id.btnBack)
+        backButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, HomeFragment())
+                .commit()
+        }
     }
 
     private fun setupProfile() {
@@ -38,7 +48,6 @@ class ProfileFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.logoutButton.setOnClickListener {
-            // Clear login state and user data
             requireContext().getSharedPreferences("FoodTopiaPrefs", Context.MODE_PRIVATE)
                 .edit()
                 .putBoolean("is_logged_in", false)
@@ -47,7 +56,6 @@ class ProfileFragment : Fragment() {
                 .remove("user_name")
                 .apply()
 
-            // Navigate to splash screen
             startActivity(Intent(requireContext(), SplashActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             })
@@ -59,4 +67,4 @@ class ProfileFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-} 
+}

@@ -1,5 +1,7 @@
 package com.dicoding.foodtopia.data.api
 
+import com.dicoding.foodtopia.data.modelrecipe.ImagesDeserializer
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,11 +18,19 @@ object ApiClient {
         .addInterceptor(loggingInterceptor)
         .build()
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val gson = GsonBuilder()
+        .registerTypeAdapter(Any::class.java, ImagesDeserializer())
+        .create()
 
-    val apiService: FoodTopiaApiService = retrofit.create(FoodTopiaApiService::class.java)
-} 
+    private val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+    }
+
+    val apiService: FoodTopiaApiService by lazy {
+        retrofit.create(FoodTopiaApiService::class.java)
+    }
+}

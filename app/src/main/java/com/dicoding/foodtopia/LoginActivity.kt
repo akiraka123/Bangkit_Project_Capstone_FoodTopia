@@ -11,6 +11,7 @@ import com.dicoding.foodtopia.data.api.ApiClient
 import com.dicoding.foodtopia.data.api.FoodTopiaApiService
 import com.dicoding.foodtopia.data.api.LoginRequest
 import com.dicoding.foodtopia.data.api.UserResponse
+import com.dicoding.foodtopia.data.api.AuthResponse
 import com.dicoding.foodtopia.databinding.ActivityLoginBinding
 import kotlinx.coroutines.launch
 
@@ -46,12 +47,7 @@ class LoginActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             response.body()?.let { authResponse ->
                                 // Save token and login state
-                                sharedPreferences.edit().apply {
-                                    putString("token", authResponse.token)
-                                    putString("email", email)
-                                    putBoolean("is_logged_in", true)
-                                    apply()
-                                }
+                                saveAuthToken(authResponse)
 
                                 // Get user profile
                                 val userResponse = ApiClient.apiService.getUserProfile("Bearer ${authResponse.token}")
@@ -107,5 +103,15 @@ class LoginActivity : AppCompatActivity() {
         }
 
         return true
+    }
+
+    private fun saveAuthToken(response: AuthResponse) {
+        sharedPreferences.edit().apply {
+            putString("token", response.token)
+            putString("email", binding.emailEditText.text.toString())
+            putBoolean("is_logged_in", true)
+            putLong("token_expiry", System.currentTimeMillis() + (response.expiresIn * 1000))
+            apply()
+        }
     }
 } 

@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dicoding.foodtopia.databinding.ItemRecipeBinding
+import com.dicoding.foodtopia.R
+import com.dicoding.foodtopia.databinding.ItemRecipeGridBinding
 import com.dicoding.foodtopia.data.modelrecipe.RandomRecipesResponse
 import com.dicoding.foodtopia.ui.detail.RecipeDetailActivity
 
@@ -19,7 +20,7 @@ class RecipeAdapter(private var recipes: List<RandomRecipesResponse.RecipesItem>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
-        val binding = ItemRecipeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemRecipeGridBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return RecipeViewHolder(binding)
     }
 
@@ -30,28 +31,33 @@ class RecipeAdapter(private var recipes: List<RandomRecipesResponse.RecipesItem>
 
     override fun getItemCount(): Int = recipes.size
 
-    inner class RecipeViewHolder(private val binding: ItemRecipeBinding) :
+    inner class RecipeViewHolder(private val binding: ItemRecipeGridBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recipe: RandomRecipesResponse.RecipesItem) {
-            binding.recipeName.text = recipe.name
-            binding.recipeCalories.text = recipe.calories
+            binding.apply {
+                recipeName.text = recipe.name
+                recipeCalories.text = "${recipe.calories ?: "0"} cal"
+                recipeCategory.text = recipe.recipeCategory ?: "Recipe"
 
-            if (recipe.images is List<*>) {
-                Glide.with(binding.root.context)
-                    .load((recipe.images as List<String>)[0])
-                    .into(binding.recipeImage)
-            } else if (recipe.images is String) {
-                Glide.with(binding.root.context)
-                    .load(recipe.images as String)
-                    .into(binding.recipeImage)
-            }
+                // Load image with placeholder and error handling
+                Glide.with(root.context)
+                    .load(when (recipe.images) {
+                        is List<*> -> (recipe.images as List<String>).firstOrNull()
+                        is String -> recipe.images as String
+                        else -> null
+                    })
+                    .placeholder(R.drawable.placeholder_recipe)
+                    .error(R.drawable.placeholder_recipe)
+                    .centerCrop()
+                    .into(recipeImage)
 
-            binding.root.setOnClickListener {
-                val context = binding.root.context
-                val intent = Intent(context, RecipeDetailActivity::class.java)
-                intent.putExtra("RECIPE_ITEM", recipe)
-                context.startActivity(intent)
+                root.setOnClickListener {
+                    val context = root.context
+                    val intent = Intent(context, RecipeDetailActivity::class.java)
+                    intent.putExtra("RECIPE_ITEM", recipe)
+                    context.startActivity(intent)
+                }
             }
         }
     }

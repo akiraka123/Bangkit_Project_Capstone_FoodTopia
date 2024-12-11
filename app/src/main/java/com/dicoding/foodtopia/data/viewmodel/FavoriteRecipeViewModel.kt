@@ -3,29 +3,36 @@ package com.dicoding.foodtopia.data.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dicoding.foodtopia.data.database.FavoriteRecipe
+import com.dicoding.foodtopia.data.modelrecipe.RandomRecipesResponse
 import com.dicoding.foodtopia.data.repository.FavoriteRecipeRepository
 import kotlinx.coroutines.launch
 
 class FavoriteRecipeViewModel(private val repository: FavoriteRecipeRepository) : ViewModel() {
+    val favorites: LiveData<List<RandomRecipesResponse.RecipesItem>> = repository.favorites
 
-    fun getFavoriteRecipes(): LiveData<List<FavoriteRecipe>> {
-        return repository.getFavoriteRecipes()
-    }
-
-    fun addFavorite(recipe: FavoriteRecipe) {
+    fun getFavoriteRecipes(token: String) {
         viewModelScope.launch {
-            repository.addToFavorites(recipe)
+            repository.getFavoriteRecipes(token)
         }
     }
 
-    fun removeFavorite(recipeId: String) {
+    fun addFavorite(token: String, recipeId: String) {
         viewModelScope.launch {
-            repository.deleteRecipeById(recipeId)
+            val success = repository.addToFavorites(token, recipeId)
+            if (success) {
+                // Refresh favorites list after successful addition
+                getFavoriteRecipes(token)
+            }
         }
     }
 
-    suspend fun isRecipeFavorited(recipeId: Int): Boolean {
-        return repository.isRecipeFavorited(recipeId) != null
+    fun removeFavorite(token: String, recipeId: String) {
+        viewModelScope.launch {
+            val success = repository.removeFromFavorites(token, recipeId)
+            if (success) {
+                // Refresh favorites list after successful removal
+                getFavoriteRecipes(token)
+            }
+        }
     }
 }

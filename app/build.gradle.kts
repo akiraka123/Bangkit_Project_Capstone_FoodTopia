@@ -41,6 +41,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        mlModelBinding = true
     }
 }
 
@@ -58,6 +59,8 @@ dependencies {
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.8.4")
+    implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.tensorflow.lite.gpu)
 
     // Testing libraries
     testImplementation(libs.junit)
@@ -98,4 +101,8 @@ dependencies {
 
     // Lifecycle Compiler
     kapt("androidx.lifecycle:lifecycle-compiler:2.8.7")
+
+    implementation ("org.tensorflow:tensorflow-lite:2.9.0")
+    implementation ("org.tensorflow:tensorflow-lite-support:0.4.2")
 }
+

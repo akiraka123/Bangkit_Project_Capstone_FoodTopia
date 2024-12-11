@@ -34,4 +34,5 @@
     <string name="search">Search</string>
     <string name="back">back</string>
     <string name="search_title">Search</string>
+    <string name="calories_icon">Calories icon</string>
 </resources>

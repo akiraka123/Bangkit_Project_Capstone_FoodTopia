@@ -8,7 +8,7 @@
 </div>
 FoodTopia is a health-focused application designed to empower users with access to an extensive database of recipes and nutritional content, aiming to help users make informed food choices. With rising concerns about nutritional awareness, our application addresses the need for accessible, accurate, and personalized nutrition information. The app allows users to explore recipes while understanding the health impact of each ingredient, tailored to their specific dietary requirements or health goals. By integrating machine learning, cloud computing, and user-centric Android development, the app simplifies healthy eating, making it achievable for vulnerable communities. Our team is passionate about creating a transformative solution that brings real value to users, promoting well-being and health equity through technology.
 
-Here’s what FoodTopia can do:
+#### Here’s what FoodTopia can do:
 * Manage and retrieve recipes
 * Predict diet categories based on nutritional input
 * Allow users to favorite their preferred recipes

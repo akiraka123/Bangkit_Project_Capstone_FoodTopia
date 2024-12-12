@@ -6,17 +6,16 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/1.jpg" width="auto" height="350">
 </div>
-FoodTopia is an application that leverages cloud computing and machine learning to simplify and enhance daily nutritional management.
+FoodTopia is a health-focused application designed to empower users with access to an extensive database of recipes and nutritional content, aiming to help users make informed food choices. With rising concerns about nutritional awareness, our application addresses the need for accessible, accurate, and personalized nutrition information. The app allows users to explore recipes while understanding the health impact of each ingredient, tailored to their specific dietary requirements or health goals. By integrating machine learning, cloud computing, and user-centric Android development, the app simplifies healthy eating, making it achievable for vulnerable communities. Our team is passionate about creating a transformative solution that brings real value to users, promoting well-being and health equity through technology.
 
 Here’s what FoodTopia can do:
 * Manage and retrieve recipes
 * Predict diet categories based on nutritional input
 * Allow users to favorite their preferred recipes
-* Provide random recipe suggestions
 
 ---
 
-## Team ID: C242-PSXXX
+## Team ID: C242-PS293
 
 ### Team Members
 1. **C296B4KY3823** - Ridho Fajar Fahturohman - Pembangunan Nasional "Veteran" University, East Java - Cloud Computing - active  

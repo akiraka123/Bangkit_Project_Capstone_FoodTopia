@@ -125,17 +125,49 @@ Here’s what FoodTopia can do:
 
 ## App Screenshots
 
-### Onboarding Pages
-<img src="https://via.placeholder.com/350x600" alt="Onboarding 1" width="auto" height=350>
-<img src="https://via.placeholder.com/350x600" alt="Onboarding 2" width="auto" height=350>
+### 1. Onboarding Page  
+<div style="display: flex; justify-content: center; gap: 20px;">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/1.jpg" width="auto" height="350">
+</div>
+<br><br>
 
-### Recipe Pages
-<img src="https://via.placeholder.com/350x600" alt="Recipe 1" width="auto" height=350>
-<img src="https://via.placeholder.com/350x600" alt="Recipe 2" width="auto" height=350>
+### 2. Sign Up and Sign In Pages  
+<div style="display: flex; justify-content: center; gap: 20px;">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/2a.jpg" width="auto" height="350">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/2.jpg" width="auto" height="350">
+</div>
+<br><br>
 
-### Nutrition Pages
-<img src="https://via.placeholder.com/350x600" alt="Nutrition 1" width="auto" height=350>
-<img src="https://via.placeholder.com/350x600" alt="Nutrition 2" width="auto" height=350>
+### 3. Home Page  
+<div style="display: flex; justify-content: center; gap: 20px;">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/3.jpg" width="auto" height="350">
+</div>
+<br><br>
+
+### 4. Detail Page  
+<div style="display: flex; justify-content: center; gap: 20px;">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/4.jpg" width="auto" height="350">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/5.jpg" width="auto" height="350">
+</div>
+<br><br>
+
+### 5. Search  
+<div style="display: flex; justify-content: center; gap: 20px;">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/6.jpg" width="auto" height="350">
+</div>
+<br><br>
+
+### 6. Favorite  
+<div style="display: flex; justify-content: center; gap: 20px;">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/7.jpg" width="auto" height="350">
+</div>
+<br><br>
+
+### 7. Profile  
+<div style="display: flex; justify-content: center; gap: 20px;">
+   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/8.jpg" width="auto" height="350">
+</div>
+<br><br>
 
 ---
 

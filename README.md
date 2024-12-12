@@ -50,7 +50,7 @@ Here’s what FoodTopia can do:
 ## Cloud Computing Learning Path
 
 ### Architecture
-<img src="https://via.placeholder.com/800x350" alt="Architecture" width="auto" height=350>
+<img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/CC/image/Arsitektur.png" alt="Architecture" width="auto" height=350>
 
 ### Backend Features
 - User authentication (Register, Login, Google Login, Password Reset)

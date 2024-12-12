@@ -1,2 +1,0 @@
-# Bangkit_Project_Capstone_FoodTopia
- Aplication_FoodTopia

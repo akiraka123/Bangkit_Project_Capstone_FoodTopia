@@ -1,0 +1,5 @@
+# Abaikan file atau folder
+/node_modules
+.env
+*.log
+firebase-key.json

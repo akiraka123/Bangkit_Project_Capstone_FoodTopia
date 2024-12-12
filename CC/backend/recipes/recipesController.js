@@ -123,14 +123,14 @@ const searchRecipes = async (req, res) => {
 const getRandomRecipes = async (req, res) => {
   try {
     const { count = 5 } = req.query; // Jumlah random makanan, default 10
-    const maxId = 541342; // Angka maksimum dalam rentang ID
+    const maxId = 100000; // Angka maksimum dalam rentang ID
 
     const randomRecipes = new Set(); // Gunakan Set untuk menghindari duplikasi
     const results = [];
 
     while (randomRecipes.size < count) {
       const randomId = Math.floor(Math.random() * maxId) + 1; // Pilih angka acak
-      const docId = `recipe_${randomId}`;
+      const docId = `${randomId}`;
 
       if (!randomRecipes.has(docId)) {
         const doc = await db.collection("recipes").doc(docId).get();

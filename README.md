@@ -3,6 +3,7 @@
 ## Product Name: “FoodTopia: Revolutionizing Nutritional Management“
 
 ### Theme: “Health Innovation: Empowering Communities for Better Nutrition and Well-being”
+<img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/1.jpg" width="auto" height="350">
 
 FoodTopia is an application that leverages cloud computing and machine learning to simplify and enhance daily nutritional management.
 

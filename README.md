@@ -53,12 +53,16 @@ FoodTopia is a health-focused application designed to empower users with access 
 ### Architecture
 <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/CC/image/Arsitektur.png" alt="Architecture" width="auto" height=350>
 
+---
+
 ### Backend Features
 - User authentication (Register, Login, Google Login, Password Reset)
 - Recipe management (CRUD operations)
 - Favorite recipes tied to user accounts
 - Random recipe suggestions
 - Integration with the ML API for predictions
+
+---
 
 ### ML API Features
 - Predict diet categories based on nutritional input values:
@@ -115,6 +119,17 @@ FoodTopia is a health-focused application designed to empower users with access 
 | Method | Endpoint               | Description                                    |
 |--------|-------------------------|------------------------------------------------|
 | POST   | `/predict`              | Predict diet category based on nutrition input|
+
+---
+
+### Technologies
+- **Node.js** with **Express.js** for backend development
+- **Firestore (NoSQL)** for database management
+- **GCP Storage** for image handling
+- **Cloud Run** for serverless deployment Foodtopia
+- **JWT** for user authentication
+- **bcrypt** for password hashing
+- **Flask (Python)** for ML APi Endpoint
 
 ---
 

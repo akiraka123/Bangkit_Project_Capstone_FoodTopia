@@ -2,7 +2,7 @@
 
 ## Product Name: “FoodTopia: Revolutionizing Nutritional Management“
 
-### Theme: “Health Innovation: Empowering Communities for Better Nutrition and Well-being”
+### Theme: “Health Innovation: Empowering Vulnserable Communitie for Health and Well-being”
 <div align="center">
   <img src="https://raw.githubusercontent.com/akiraka123/Bangkit_Project_Capstone_FoodTopia/main/MD/screenshots/1.jpg" width="auto" height="350">
 </div>
